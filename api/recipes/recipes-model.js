@@ -18,7 +18,7 @@ async function getRecipeById(recipe_id) {
         .orderBy('s.step_number')
         .where('r.recipe_id', recipe_id)
 
-    const recipe = {
+    const recipes = {
         recipe_id: recipeRows[0].recipe_id,
         recipe_name: recipeRows[0].recipe_name,
         steps: recipeRows.reduce((acc, row) => {
@@ -53,7 +53,7 @@ async function getRecipeById(recipe_id) {
         }, [])
     }
 
-    return recipeRows
+    return recipes
 }
 
 module.exports = {
